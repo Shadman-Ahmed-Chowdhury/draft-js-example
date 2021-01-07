@@ -5,13 +5,16 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { convertToHTML } from "draft-convert";
 import DOMPurify from "dompurify";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import Form from "./components/Form";
 const App = () => {
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
   const [convertedContent, setConvertedContent] = useState(null);
-  const handleEditorChange = (state) => {
-    setEditorState(state);
+  const handleEditorChange = async (state) => {
+    await setEditorState(state);
     convertContentToHTML();
   };
   const convertContentToHTML = () => {
@@ -37,6 +40,8 @@ const App = () => {
         className="preview"
         dangerouslySetInnerHTML={createMarkup(convertedContent)}
       ></div>
+
+      <Form />
     </div>
   );
 };

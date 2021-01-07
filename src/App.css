@@ -23,3 +23,7 @@
 .toolbar-class {
   border: 1px solid #ccc;
 }
+
+.preview {
+  background-color: #aaa;
+}
